@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Type Casting App",
-  description: "Actors Helping Actors",
+  title: "The TypeCasting App",
+  description: "Helping Actors",
 };
 
 export default function RootLayout({

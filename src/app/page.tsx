@@ -11,8 +11,8 @@ export default async function Home() {
   return (
     <div className="flex flex-col md:flex-row items-center justify-evenly">
       <div className="">
-        <h1 className="text-5xl font-semibold">Welcome to </h1>
-        <h1 className="text-5xl font-semibold">Typecasting App!</h1>
+        <h1 className="text-5xl font-semibold">Welcome to the</h1>
+        <h1 className="text-5xl font-semibold">TypeCasting App!</h1>
       </div>
       <div className="sticky top-20 mt-5">
         <Card>

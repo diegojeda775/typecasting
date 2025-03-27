@@ -17,7 +17,7 @@ async function NavBar() {
             <Link href={"/"} className="text-xl font-bold text-primary font-mono
               tracking-wider"
             >
-              TypeCast App
+              The TypeCasting App
             </Link>
           </div>
 
