@@ -2,11 +2,9 @@ import React from 'react'
 import Link from 'next/link'
 import DesktopNavBar from './DesktopNavBar'
 import MobileNavBar from './MobileNavBar'
-import { onUserLogin } from '@/app/actions/user.actions';
 
 
 async function NavBar() {
-  const dbUser = await onUserLogin();
   return (
     <nav className="sticky top-0 w-full borde-b bg-background/95 backdrop-blur
       supports-[backdrop-filter] :bg-background/60 z-50"

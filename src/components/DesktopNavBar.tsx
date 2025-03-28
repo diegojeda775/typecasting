@@ -1,5 +1,5 @@
 import { ModeToggle } from './ThemeToggle'
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
+import { UserButton } from '@clerk/nextjs'
 import { Button } from './ui/button'
 import { currentUser } from '@clerk/nextjs/server'
 import { BellIcon, HomeIcon, UserIcon } from 'lucide-react'
@@ -16,7 +16,7 @@ async function DesktopNavBar() {
           <span className="hidden lg:inline">Home</span>
         </Link>
       </Button>
-      {user && 
+      {user ?
         <>
           <Button variant="ghost" className='flex items-center gap-2' asChild>
             <Link href={"/notifications"}>
@@ -25,23 +25,20 @@ async function DesktopNavBar() {
             </Link>
           </Button>
           <Button variant="ghost" className='flex items-center gap-2' asChild>
-            <Link href={`/profile/${user.username ?? user.emailAddresses[0].emailAddress.split("@")[0]}`}>
+            <Link href={`/profile/${user.username ?? user.emailAddresses[0]?.emailAddress.split("@")[0]}`}>
               <UserIcon className="w-4 h-4"/>
               <span className="hidden lg:inline">Profile</span>
             </Link>
           </Button>
+          <UserButton />
         </>
-      }
-      <SignedOut>
-        <SignInButton mode="modal">
-          <Button className=" ">
+        :
+        <Button className=" ">
+          <Link href={"/sign-in"}>
             Sign in
-          </Button>
-        </SignInButton>
-      </SignedOut>
-      <SignedIn>
-        <UserButton />
-      </SignedIn>
+          </Link>
+        </Button>
+      }
     </div>
   )
 }

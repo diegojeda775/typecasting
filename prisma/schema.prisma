@@ -13,17 +13,23 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum UserRole {
+  USER
+  ADMIN
+  CASTING
+}
 model User {
   id          String    @id @default(cuid())
-  email       String    @unique
-  username    String    @unique
-  externalId  String    @unique
-  name        String?
   avatar      String?
-  location    String?
+  externalId  String    @unique
+  email       String    @unique
+  name        String?
+  role        UserRole  @default(USER)
+  username    String    @unique
   website     String?
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime?
 
   images      Image[]
   typecasts   TypeCast[]

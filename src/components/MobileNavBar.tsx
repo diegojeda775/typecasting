@@ -49,7 +49,7 @@ function MobileNavBar() {
                   </Link>
                 </Button>
                 <Button variant="ghost" className="flex items-center gap-3 justify-start" onClick={closeMenu} asChild>
-                  <Link href={`/profile/${user.username ?? user.emailAddresses[0].emailAddress.split("@")[0]}`}>
+                  <Link href={`/profile/${user.username ?? user?.emailAddresses[0]?.emailAddress.split("@")[0]}`}>
                     <UserIcon className="w-4 h-4" />
                     Profile
                   </Link>
