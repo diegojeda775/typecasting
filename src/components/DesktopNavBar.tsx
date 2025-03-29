@@ -4,6 +4,7 @@ import { Button } from './ui/button'
 import { currentUser } from '@clerk/nextjs/server'
 import { BellIcon, HomeIcon, UserIcon } from 'lucide-react'
 import Link from 'next/link'
+import AdminLinkButton from './AdminLink'
 
 async function DesktopNavBar() {
   const user = await currentUser()
@@ -18,6 +19,7 @@ async function DesktopNavBar() {
       </Button>
       {user ?
         <>
+          <AdminLinkButton variant="ghost" classes='flex items-center gap-2'/>
           <Button variant="ghost" className='flex items-center gap-2' asChild>
             <Link href={"/notifications"}>
               <BellIcon className="w-4 h-4"/>

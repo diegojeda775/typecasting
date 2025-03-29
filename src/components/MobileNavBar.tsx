@@ -1,4 +1,8 @@
 "use client"
+import { BellIcon, HomeIcon, LogOutIcon, MenuIcon, UserIcon } from "lucide-react";
+import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
+import Link from "next/link";
+import { useCallback, useState } from "react";
 import {
   Sheet,
   SheetContent,
@@ -7,11 +11,8 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { ModeToggle } from "./ThemeToggle";
-import { BellIcon, HomeIcon, LogOutIcon, MenuIcon, UserIcon } from "lucide-react";
-import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
 import { Button } from "./ui/button";
-import Link from "next/link";
-import { useCallback, useState } from "react";
+import AdminLinkButton from "./AdminLink";
 
 function MobileNavBar() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -42,6 +43,7 @@ function MobileNavBar() {
             </Button>
             {isSignedIn ? (
               <>
+                {/* <AdminLinkButton variant="ghost" classes="flex items-center gap-3 justify-start" onClick={closeMenu}/> */}
                 <Button variant="ghost" className="flex items-center gap-3 justify-start" onClick={closeMenu} asChild>
                   <Link href="/notifications">
                     <BellIcon className="w-4 h-4" />
