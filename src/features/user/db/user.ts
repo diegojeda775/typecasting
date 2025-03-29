@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { Prisma, User } from "@prisma/client";
-type UserButtonCreateBody = Prisma.Args<typeof prisma.user, 'create'>['data']
-export async function createUser(data: UserButtonCreateBody) {
+type UserCreateBody = Prisma.Args<typeof prisma.user, 'create'>['data']
+export async function createUser(data: UserCreateBody) {
   const newUser = await prisma.user.create({
     data
   });
