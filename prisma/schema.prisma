@@ -39,6 +39,7 @@ model Image {
   id          String    @id @default(cuid())
   creatorId   String
   createdAt   DateTime  @default(now())
+  deletedAt   DateTime?
   updatedAt   DateTime  @updatedAt
   sourceUrl   String
 
@@ -51,6 +52,7 @@ model TypeCast {
   imageId     String
   creatorId   String
   createdAt   DateTime  @default(now())
+  deletedAt   DateTime?
   updatedAt   DateTime  @updatedAt
   typecast    Json
   image       Image     @relation(fields: [imageId],references: [id])

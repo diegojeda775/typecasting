@@ -15,8 +15,6 @@ export default clerkMiddleware(async (auth, req) => {
   }
   if (!isNotProtectedRoute(req)) await auth.protect()
 
-}, {
-  debug: true,
 });
 
 export const config = {

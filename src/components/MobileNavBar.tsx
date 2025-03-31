@@ -17,6 +17,7 @@ import AdminLinkButton from "./AdminLink";
 function MobileNavBar() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const { user, isSignedIn } = useUser();
+
   const closeMenu = useCallback(() => {
     setShowMobileMenu(false)
   }, [])
